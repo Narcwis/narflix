@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Logo from "./components/Logo";
+import "./App.css";
+import axios from "axios";
+import Button from "./components/Button";
+import Description from "./components/Description";
+import FilmCard from "./components/FilmCard";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [films, setFilms] = useState([]);
+
+    useEffect(() => {});
+    // const getData = url => {
+    //     axios
+    //         .get(url)
+    //         .then(({ data }) => console.log(data))
+    //         .catch(error => console.log(error));
+    // };
+    // getData("https://api.themoviedb.org/3/discover/movie?api_key=e94c3f3fab193264594666c3cf7639b1&sort_by=popularity.desc");
+    return (
+        <div className="App">
+            <Logo />
+            <Description>For only 25 schmeckles per month you can get all these films!</Description>
+            {films.length > 0 ? films.map(film => <FilmCard film={film}></FilmCard>) : <Description>No films yet sorry :(</Description>}
+            <Button>Moar plz</Button>
+        </div>
+    );
 }
 
 export default App;
