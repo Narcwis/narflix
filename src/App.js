@@ -38,12 +38,12 @@ function App() {
     return (
         <div className="App">
             <Logo />
-            <Description>For only 25 schmeckles per month you can get all these films!</Description>
+            <Description id="promotional-message">For only 25 schmeckles per month you can get all these films!</Description>
             <FilmGrid>
                 {films.length > 0 ? (
                     _.take(films, count).map(film => <FilmCard film={film}></FilmCard>)
                 ) : (
-                    <Description>No films yet sorry :(</Description>
+                    <Description id="error-message">No films yet sorry :(</Description>
                 )}
             </FilmGrid>
             <Button onClick={moreFilms}>Moar plz</Button>
